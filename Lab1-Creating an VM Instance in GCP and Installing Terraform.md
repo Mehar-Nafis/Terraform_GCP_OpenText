@@ -36,72 +36,10 @@ terraform
 terraform -v
 ```
 
-### Task-2: Install Required Packages and login to Ubuntu server using Credentials. 
+### Task-2: Install Required Packages  
 ```
-sudo apt-get install python3-pip -y
-```
-```
-sudo pip3 install awscli --break-system-packages
+snap install google-cloud-cli --classic
 ```
 ```
-aws configure
-```
-* When it prompts for Credentials, Enter the Keys as example shown below
-  
-| `Access Key ID.` | `Secret Access Key ID.` |
-| ------------------ | ------------------------- |
-| AKIAIOSFODNN7EXAMPLE | wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY |
-
-##### Note: If Credentials are not available generate from AWS IAM Service
-Once LoggedIn check the account access
-```
-aws s3 ls
-```
-`Or` Use below command to check whether it is authenticated.
-```
-aws iam list-users
-```
-### Task-3: Now we are ready to perform the labs
-Create directory as Lab1 & create local file
-```
-mkdir Lab1 && cd Lab1
-```
-```
-vi local.tf
-```
-```
-resource "local_file" "myfile" {
-
-  filename = "/home/ubuntu/test.txt"
-  content  = "wel come to terraform"
-}
-```
-```
-terraform init
-```
-```
-terraform plan
-```
-```
-terraform apply
-```
-To check whether the file is created follow the command
-
-```
-cd /home/ubuntu
-ls
-```
-```
-cat test.txt
-```
-Once Verified, you can destroy the File by changing it to the Lab1 Directory
-```
-cd Lab1
-```
-```
-terraform destroy
-```
-```
-cd ~
-rm -rf Lab1
+gcloud init
 ```
