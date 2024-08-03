@@ -1,4 +1,4 @@
-### Launching your first GKE Cluster using Terraform
+### Task1: Launching your first GKE Cluster using Terraform
 ```
 cd ~
 mkdir Lab3
@@ -62,6 +62,10 @@ terraform show
 Navigate from the Console to `Kubernetes Cluster` to view the created cluster.
 The nodes are visible on the Compute Engine Dashboard.
 
+### Task2: Connecting to the Cluster
+```
+sudo snap install kubectl --classic
+```
 Use the `terraform destroy` command for cleaning the infrastructure used in this lab
 ```
 terraform destroy
