@@ -2,7 +2,7 @@
 
 To begin, log in to GCP Console.
 
-### Task-1: LAunch a Ubuntu VM and Install Terraform
+### Task-1: Launch a Ubuntu VM and Install Terraform
 * Navigate to `VM Instances`
 * Click on `CREATE INSTANCE`
 * Name : TerraformServer`
