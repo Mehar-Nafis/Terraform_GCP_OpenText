@@ -1,7 +1,23 @@
+### Launching your first GKE Cluster using Terraform
+```
+cd ~
+mkdir Lab3
+```
+```
+vi provider.tf
+```
+```hcl
+provider "google" {
+  project     = "deloitte-team2"
+  zone        = "us-central1-c"
+  region      = "us-central1"
+}
+```
 ```
 vi main.tf
 ```
 ```hcl
+
 resource "google_container_cluster" "gke-cluster" {
   name               = "ninad-gke-cluster"
   network            = "default1"
@@ -16,14 +32,39 @@ resource "google_container_node_pool" "extra-pool" {
   cluster            = google_container_cluster.gke-cluster.name
   initial_node_count = 2
 }
+
+```
+Save the file using "ESCAPE + :wq!"
+```
+terraform init
 ```
 ```
-vi provider.tf
+terraform fmt
 ```
-```hcl
-provider "google" {
-  project     = "deloitte-team2"
-  zone        = "us-central1-c"
-  region      = "us-central1"
-}
+```
+terraform validate
+```
+```
+terraform plan
+```
+```
+terraform apply
+```
+```
+#List the files
+ls 
+```
+To see what is saved in `terraform.tfstate` use the below command.
+
+```
+terraform show
+```
+Use the `terraform destroy` command for cleaning the infrastructure used in this lab
+```
+terraform destroy
+```
+Finally, verify that the resources are deleted in the Console.
+```
+cd ~
+rm -rf Lab3
 ```
