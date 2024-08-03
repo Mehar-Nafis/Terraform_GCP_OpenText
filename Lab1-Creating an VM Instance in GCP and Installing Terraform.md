@@ -2,14 +2,13 @@
 
 To begin, log in to GCP Console.
 
-### Task-1: Create a Service Account `terraform-service-account` with Admin priveleges and Install Terraform on Ubuntu VM
-* Navigate to `Vm Instances`
+### Task-1: LAunch a Ubuntu VM and Install Terraform
+* Navigate to `VM Instances`
 * Click on `CREATE INSTANCE`
 * Name : TerraformServer`
 * Region : Of Your choice
 * Zone : Any
 * Machine : e2-medium
-* Service Account : terraform-service-account
 * Boot disk-image : `Ubuntu 24.04 LTS`
 * Boot disk-Size : `10 GB`
 * Once Launched, `ssh` into the instance
