@@ -59,6 +59,9 @@ To see what is saved in `terraform.tfstate` use the below command.
 ```
 terraform show
 ```
+Navigate from the Console to `Kubernetes Cluster` to view the created cluster.
+The nodes are visible on the Compute Engine Dashboard.
+
 Use the `terraform destroy` command for cleaning the infrastructure used in this lab
 ```
 terraform destroy
