@@ -36,7 +36,7 @@ terraform
 terraform -v
 ```
 
-### Task-2: Install Required Packages  
+### Task-2: Install Required Packages and Authenticate 
 ```
 snap install google-cloud-cli --classic
 ```
