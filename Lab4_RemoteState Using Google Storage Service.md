@@ -82,7 +82,7 @@ terraform init
 terraform plan
 ```
 
-### 6. Apply Your Terraform Configuration
+### 4. Apply Your Terraform Configuration
 
 1. Run the following command to apply your Terraform configuration:
 
@@ -98,3 +98,5 @@ terraform plan
 - **Monitoring State Locking**: You can monitor the lock status by checking for lock files in your GCS bucket. Terraform lock files have the `.tflock` extension.
 
 By following these steps, you ensure that your Terraform state is securely stored in GCS with state locking enabled, allowing for safe and concurrent access to the state file.
+
+### 5. Cleanup
