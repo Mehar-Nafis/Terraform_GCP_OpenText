@@ -73,13 +73,14 @@ Replace `terraform-backend-opentext` with the name of your GCS bucket.
 
 ### 3. Initialize Terraform
 
-Initialize the backend with the following command:
+Initialize the backend with the following command. Terraform will configure the remote backend and migrate your state file to the GCS bucket. 
 
 ```sh
 terraform init
 ```
-
-Terraform will configure the remote backend and migrate your state file to the GCS bucket. This step also sets up state locking.
+```sh
+terraform plan
+```
 
 ### 6. Apply Your Terraform Configuration
 
