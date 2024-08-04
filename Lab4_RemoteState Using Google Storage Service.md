@@ -100,3 +100,13 @@ terraform plan
 By following these steps, you ensure that your Terraform state is securely stored in GCS with state locking enabled, allowing for safe and concurrent access to the state file.
 
 ### 5. Cleanup
+
+Use the `terraform destroy` command for cleaning the infrastructure used in this lab
+```
+terraform destroy
+```
+Finally, verify that the resources are deleted in the Console.
+```
+cd ~
+rm -rf lab4
+```
