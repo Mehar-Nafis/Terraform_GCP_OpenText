@@ -19,56 +19,67 @@
 6. Enable **Object Versioning** in the **Advanced settings** section.
 7. Click **Create**.
 
-### 2. Configure a Service Account with Permissions
+### 2. Set Up Terraform
 
-1. Go to the [IAM & Admin](https://console.cloud.google.com/iam-admin/serviceaccounts) section.
-2. Click **Create Service Account**.
-3. Provide a name and description, then click **Create**.
-4. Assign the following roles to the service account:
-   - **Storage Admin**: Provides full control over storage buckets and objects.
-   - **Storage Object Admin**: Provides full control over objects within buckets.
-5. Click **Done**.
+Create a director lab4 and navivate to it
+```bash 
+mkdir lab4 && cd lab4
+```
+Create a files named `main.tf`, `provider.tf` and `backend.tf`
+```bash
+vi main.tf
+```
+```hcl
+resource "google_compute_instance" "vm_instance" {
+  name         = "terraform-instance-test"
+  machine_type = "g1-small"
 
-### 3. Create and Download a Service Account Key
-
-1. In the Service Account list, find your newly created service account.
-2. Click on the **three dots** on the right and select **Create key**.
-3. Choose **JSON** as the key type and click **Create**.
-4. Download the key file and save it securely.
-
-### 4. Set Up Terraform
-
-1. Create a new directory for your Terraform configuration, or navigate to an existing one.
-2. Create a file named `main.tf` (or use your existing configuration file).
-3. Add the backend configuration for GCS to your `main.tf`:
-
-    ```hcl
-    terraform {
-      backend "gcs" {
-        bucket  = "your-bucket-name"
-        prefix  = "terraform/state"
-      }
+  boot_disk {
+    initialize_params {
+      image = "debian-12-bookworm-v20240709"
     }
-    ```
+  }
 
-    Replace `your-bucket-name` with the name of your GCS bucket.
+  network_interface {
+    # A default network is created for all GCP projects
+    network = "default1"
+    access_config {
+    }
+  }
+}
+```
+```bash
+vi provider.tf
+```
+```hcl
+provider "google" {
+  project     = "deloitte-team2"
+  zone        = "us-central1-c"
+  region      = "us-central1"
+}
+```
+```bash
+vi backend.tf
+```
+```hcl
+terraform {
+  backend "gcs" {
+    bucket  = "terraform-backend-opentext"
+    prefix  = "terraform/state"
+  }
+}
+```
+Replace `terraform-backend-opentext` with the name of your GCS bucket.
 
-### 5. Initialize Terraform
+### 3. Initialize Terraform
 
-1. Open a terminal and navigate to your Terraform configuration directory.
-2. Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the path of your service account key file:
-
-    ```sh
-    export GOOGLE_APPLICATION_CREDENTIALS="/path/to/your-service-account-file.json"
-    ```
-
-3. Initialize the backend with the following command:
+Initialize the backend with the following command:
 
     ```sh
     terraform init
     ```
 
-    Terraform will configure the remote backend and migrate your state file to the GCS bucket. This step also sets up state locking.
+Terraform will configure the remote backend and migrate your state file to the GCS bucket. This step also sets up state locking.
 
 ### 6. Apply Your Terraform Configuration
 
