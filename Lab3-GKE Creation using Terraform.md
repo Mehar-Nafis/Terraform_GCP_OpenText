@@ -64,7 +64,6 @@ The nodes are visible on the Compute Engine Dashboard.
 
 ### Task2: Connecting to the Cluster
 ```
-sudo gcloud components install kubectl
 sudo apt-get install kubectl
 sudo apt-get install gke-gcloud-auth-plugin
 sudo gcloud components install gke-gcloud-auth-plugin
