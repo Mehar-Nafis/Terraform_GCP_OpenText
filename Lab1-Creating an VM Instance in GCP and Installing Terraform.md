@@ -43,6 +43,4 @@ snap install google-cloud-cli --classic
 ```
 gcloud init
 ```
-```
-gcloud auth application-default login
-```
+
