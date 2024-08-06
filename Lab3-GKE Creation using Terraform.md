@@ -1,7 +1,7 @@
 ### Task1: Launching your first GKE Cluster using Terraform
 ```
 cd ~
-mkdir Lab3
+mkdir Lab3 && cd Lab3
 ```
 ```
 vi provider.tf
