@@ -66,7 +66,6 @@ The nodes are visible on the Compute Engine Dashboard.
 ```
 sudo apt-get install kubectl
 sudo apt-get install gke-gcloud-auth-plugin
-sudo gcloud components install gke-gcloud-auth-plugin
 sudo apt-get install google-cloud-cli-gke-gcloud-auth-plugin
 gcloud container clusters get-credentials ninad-gke-cluster --zone us-central1-c --project deloitte-team2
 kubetl get nodes
