@@ -129,9 +129,8 @@ terraform apply
 ```
 terraform destroy
 ```
-```
-=====================================
-# create  ssh key and copy the key into both the vm
+
+create  ssh key and copy the key into both the vm
 
 ```
 vi ssh-key.sh
