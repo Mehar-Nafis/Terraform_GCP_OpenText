@@ -1,9 +1,9 @@
-## Once the VM is up & running, SSH into one of it and set the hostname as 'Control-Node'. 
+### Once the VM is up & running, SSH into one of it and set the hostname as 'Control-Node'. 
 ```
 sudo hostnamectl set-hostname Control-Node
 ```
 
-Install ansible
+### Install ansible
 =====================
 ```
 vi install-ansible.sh
