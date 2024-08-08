@@ -23,12 +23,12 @@ sudo apt install ansible -y
 ```
 ansible --version
 ```
-```
+
 save the file :wq
 
 And run the below command
 
-```
+
 ```
 sudo chmod +x install-ansible.sh
 ```
